@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Findjob</title>
+    <link rel="shortcut icon" href="./img/search.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../dist/style.css">
+</head>
+<body class="font-poppins">
+    <!-- Navbar -->
+    <nav id="nav" class="fixed z-10 top-0 left-0 right-0 whitespace-nowrap lg:flex">
+        <div class="px-4 flex justify-between items-center lg:px-12">
+            <a href="#" class="text-3xl flex flex-row font-medium">
+                Findj
+                <svg class="relative top-1" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M26.7592 24.6908L21.2461 19.1777C22.5734 17.4108 23.2899 15.26 23.2875 13.05C23.2875 7.40508 18.6949 2.8125 13.05 2.8125C7.40508 2.8125 2.8125 7.40508 2.8125 13.05C2.8125 18.6949 7.40508 23.2875 13.05 23.2875C15.26 23.2899 17.4108 22.5734 19.1777 21.2461L24.6908 26.7592C24.9699 27.0086 25.3339 27.1418 25.708 27.1313C26.0822 27.1209 26.4382 26.9676 26.7029 26.7029C26.9676 26.4382 27.1209 26.0822 27.1313 25.708C27.1418 25.3339 27.0086 24.9699 26.7592 24.6908ZM5.7375 13.05C5.7375 11.6037 6.16637 10.1899 6.96988 8.98739C7.77339 7.78486 8.91544 6.8476 10.2516 6.29413C11.5878 5.74067 13.0581 5.59585 14.4766 5.87801C15.8951 6.16016 17.198 6.85661 18.2207 7.87928C19.2434 8.90195 19.9398 10.2049 20.222 11.6234C20.5041 13.0419 20.3593 14.5122 19.8059 15.8484C19.2524 17.1846 18.3151 18.3266 17.1126 19.1301C15.9101 19.9336 14.4963 20.3625 13.05 20.3625C11.1113 20.3602 9.25271 19.589 7.88185 18.2181C6.51099 16.8473 5.73983 14.9887 5.7375 13.05Z" fill="#5597BC"/>
+                </svg>
+                b
+            </a>
+            <button class="lg:hidden" name="btn_toggler" onclick="navtoggle()" aria-label="btn_toggler">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
+                    <path d="M7.8125 15.625H42.1875M7.8125 25H42.1875M7.8125 34.375H42.1875" stroke="black" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+        <ul id="navlink" class="px-4 flex flex-col gap-y-4 h-0 overflow-hidden lg:px-12 lg:ms-auto lg:h-auto lg:flex-row lg:gap-x-8 lg:items-center">
+            <li class="relative w-min text-myorange">
+                <a href="#" class="before:absolute before:translate-x-[-50%] before:start-[50%] before:bottom-0 before:w-4 before:border-b-2 before:border-myorange">Home</a>
+            </li>
+            <li class="w-min text-base font-medium">
+                <a href="#">About Us</a>
+            </li>
+            <li class="w-min text-base font-medium">
+                <a href="#">Our App</a>
+            </li>
+            <li class="w-min text-base font-medium">
+                <a href="#">Contact</a>
+            </li>
+            <li class="w-min text-base font-medium">
+                <svg class="inline" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.5 14.3668H15.4688C17.6172 14.3668 19.375 13.2258 19.375 11.1012C19.375 8.97656 17.3047 7.91874 15.625 7.83554C15.2777 4.51288 12.8516 2.49179 10 2.49179C7.30469 2.49179 5.56875 4.28046 5 6.05429C2.65625 6.27695 0.625 7.76835 0.625 10.2105C0.625 12.6527 2.73438 14.3668 5.3125 14.3668H7.5" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12.5 9.99179L10 7.49179L7.5 9.99179M10 17.5082V8.11679" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <a href="#">Upload Resume</a>
+            </li>
+            <li class="w-min text-base font-medium">
+                <svg class="inline" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.4375 5.625C13.2844 7.69023 11.7188 9.375 10 9.375C8.28125 9.375 6.71289 7.69063 6.5625 5.625C6.40625 3.47656 7.92969 1.875 10 1.875C12.0703 1.875 13.5938 3.51562 13.4375 5.625Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 11.875C6.60157 11.875 3.15235 13.75 2.51407 17.2891C2.43711 17.7156 2.67852 18.125 3.125 18.125H16.875C17.3219 18.125 17.5633 17.7156 17.4863 17.2891C16.8477 13.75 13.3984 11.875 10 11.875Z" stroke="black" stroke-miterlimit="10"/>
+                </svg>                        
+                <a href="#">My Account</a>
+            </li>
+            <button name="create_account" class="px-2 py-1 w-min rounded bg-myblue-100 text-white" aria-label="create_account">
+                Create Account
+            </button>
+        </ul>
+    </nav>
+    <!-- Page1 -->
+    <section class="px-4 pt-24 pb-4 bg-mywhite md:pt-44 md:flex lg:px-12">
+        <div class="space-y-4">
+            <p class="text-base text-myblue-100">Stay connect to get upcoming job with FindJob</p>
+            <h1 class="text-3xl font-semibold lg:text-5xl">Find your <span class="text-myorange">job</span> & make sure goal.</h1>
+            <h2 class="text-lg font-medium lg:text-2xl">Your dream job is waiting for you</h2>
+            <form class="p-2 flex justify-between w-full bg-white rounded-lg shadow-md">
+                <input type="text" class="px-2 py-1 w-2/5 text-base bg-mywhite rounded-md outline-none" placeholder="Job title or keyword">
+                <input type="text" class="px-2 py-1 w-2/5 text-base bg-mywhite rounded-md outline-none" placeholder="Location">
+                <button name="search" class="p-2 rounded-md bg-myblue-100" aria-label="search">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M26.7592 24.6908L21.2461 19.1777C22.5734 17.4108 23.2899 15.26 23.2875 13.05C23.2875 7.40508 18.6949 2.8125 13.05 2.8125C7.40508 2.8125 2.8125 7.40508 2.8125 13.05C2.8125 18.6949 7.40508 23.2875 13.05 23.2875C15.26 23.2899 17.4108 22.5734 19.1777 21.2461L24.6908 26.7592C24.9699 27.0086 25.3339 27.1418 25.708 27.1313C26.0822 27.1209 26.4382 26.9676 26.7029 26.7029C26.9676 26.4382 27.1209 26.0822 27.1313 25.708C27.1418 25.3339 27.0086 24.9699 26.7592 24.6908ZM5.7375 13.05C5.7375 11.6037 6.16637 10.1899 6.96988 8.98739C7.77339 7.78486 8.91544 6.8476 10.2516 6.29413C11.5878 5.74067 13.0581 5.59585 14.4766 5.87801C15.8951 6.16016 17.198 6.85661 18.2207 7.87928C19.2434 8.90195 19.9398 10.2049 20.222 11.6234C20.5041 13.0419 20.3593 14.5122 19.8059 15.8484C19.2524 17.1846 18.3151 18.3266 17.1126 19.1301C15.9101 19.9336 14.4963 20.3625 13.05 20.3625C11.1113 20.3602 9.25271 19.589 7.88185 18.2181C6.51099 16.8473 5.73983 14.9887 5.7375 13.05Z" fill="white"/>
+                    </svg>                            
+                </button>
+            </form>
+            <p class="font-medium">we are trusted by:</p>
+            <div class="flex flex-row gap-4">
+                <img src="./img/google.png" alt="google" class="w-8 md:w-12">
+                <img src="./img/behance.png" alt="behance" class="w-8 md:w-12">
+                <img src="./img/linkedin.png" alt="linkedin" class="w-8 md:w-12">
+                <img src="./img/microsoft.png" alt="microsoft" class="w-8 md:w-12">
+            </div>
+        </div>
+        <div>
+            <img class="ms-auto me-12" src="./img/bg.png" alt="bg">
+        </div>
+    </section>
+    <div class="px-4 lg:px-12">
+        <!-- Page2 -->
+        <section class="mt-24 relative flex flex-wrap justify-between gap-y-4 md:flex-nowrap">
+            <div class="text-center w-2/5 md:w-1/6">
+                <div class="mx-auto w-full aspect-square bg-myblue-100 bg-opacity-[0.15] rounded-full">
+                    <svg class="m-auto h-full" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                        <path d="M20.1562 8.4375C19.9265 11.5354 17.5781 14.0625 15 14.0625C12.4219 14.0625 10.0693 11.5359 9.84374 8.4375C9.60936 5.21484 11.8945 2.8125 15 2.8125C18.1055 2.8125 20.3906 5.27344 20.1562 8.4375Z" stroke="#5597BC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15 17.8125C9.90233 17.8125 4.72851 20.625 3.77108 25.9336C3.65565 26.5734 4.01776 27.1875 4.68749 27.1875H25.3125C25.9828 27.1875 26.3449 26.5734 26.2295 25.9336C25.2715 20.625 20.0976 17.8125 15 17.8125Z" stroke="#5597BC" stroke-width="3" stroke-miterlimit="10"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-medium">Account</h3>
+                <p class="text-base">create your account for the first time</p>
+            </div>
+            <svg class="mt-14" xmlns="http://www.w3.org/2000/svg" width="31" height="8" viewBox="0 0 31 8" fill="none">
+                <path d="M30.3536 4.35355C30.5488 4.15829 30.5488 3.84171 30.3536 3.64645L27.1716 0.464466C26.9763 0.269204 26.6597 0.269204 26.4645 0.464466C26.2692 0.659728 26.2692 0.976311 26.4645 1.17157L29.2929 4L26.4645 6.82843C26.2692 7.02369 26.2692 7.34027 26.4645 7.53553C26.6597 7.7308 26.9763 7.7308 27.1716 7.53553L30.3536 4.35355ZM0 4.5H30V3.5L0 3.5L0 4.5Z" fill="#5597BC"/>
+            </svg>
+            <div class="text-center w-2/5 md:w-1/6">
+                <div class="mx-auto w-full aspect-square bg-myorange bg-opacity-[0.15] rounded-full">
+                    <svg class="m-auto h-full" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                        <g clip-path="url(#clip0_8_14)">
+                          <path d="M18.75 21.5502H23.2031C26.4258 21.5502 29.0625 19.8386 29.0625 16.6517C29.0625 13.4648 25.957 11.8781 23.4375 11.7533C22.9166 6.76931 19.2773 3.73767 15 3.73767C10.957 3.73767 8.35313 6.42068 7.5 9.08142C3.98438 9.41541 0.9375 11.6525 0.9375 15.3158C0.9375 18.9791 4.10156 21.5502 7.96875 21.5502H11.25" stroke="#F1A223" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M18.75 14.9877L15 11.2377L11.25 14.9877M15 26.2623V12.1752" stroke="#F1A223" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_8_14">
+                            <rect width="30" height="30" fill="white"/>
+                          </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-medium">CV/Resume</h3>
+                <p class="text-base">Enter your best CV/resume to get a job</p>
+            </div>
+            <svg class="hidden mt-14 md:block" xmlns="http://www.w3.org/2000/svg" width="31" height="8" viewBox="0 0 31 8" fill="none">
+                <path d="M30.3536 4.35355C30.5488 4.15829 30.5488 3.84171 30.3536 3.64645L27.1716 0.464466C26.9763 0.269204 26.6597 0.269204 26.4645 0.464466C26.2692 0.659728 26.2692 0.976311 26.4645 1.17157L29.2929 4L26.4645 6.82843C26.2692 7.02369 26.2692 7.34027 26.4645 7.53553C26.6597 7.7308 26.9763 7.7308 27.1716 7.53553L30.3536 4.35355ZM0 4.5H30V3.5L0 3.5L0 4.5Z" fill="#5597BC"/>
+            </svg>
+            <div class="text-center w-2/5 md:w-1/6">
+                <div class="mx-auto w-full aspect-square bg-mygray bg-opacity-[0.15] rounded-full">
+                    <svg class="m-auto h-full" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                        <path d="M12.9545 3.75C11.134 3.75 9.35442 4.28983 7.84075 5.30124C6.32708 6.31264 5.14731 7.75018 4.45065 9.43209C3.75398 11.114 3.5717 12.9647 3.92686 14.7502C4.28202 16.5357 5.15866 18.1758 6.44593 19.4631C7.7332 20.7503 9.37329 21.627 11.1588 21.9821C12.9443 22.3373 14.795 22.155 16.4769 21.4583C18.1588 20.7617 19.5963 19.5819 20.6077 18.0682C21.6191 16.5546 22.159 14.775 22.159 12.9545C22.1588 10.5134 21.189 8.17225 19.4629 6.44611C17.7367 4.71996 15.3956 3.75016 12.9545 3.75Z" stroke="#A7A7A7" stroke-width="3" stroke-miterlimit="10"/>
+                        <path d="M19.8217 19.8217L26.25 26.25" stroke="#A7A7A7" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+                      </svg>
+                </div>
+                <h3 class="text-lg font-medium">Find</h3>
+                <p class="text-base">Look for a job that suits your interests and skills</p>
+            </div>
+            <svg class="mt-14" xmlns="http://www.w3.org/2000/svg" width="31" height="8" viewBox="0 0 31 8" fill="none">
+                <path d="M30.3536 4.35355C30.5488 4.15829 30.5488 3.84171 30.3536 3.64645L27.1716 0.464466C26.9763 0.269204 26.6597 0.269204 26.4645 0.464466C26.2692 0.659728 26.2692 0.976311 26.4645 1.17157L29.2929 4L26.4645 6.82843C26.2692 7.02369 26.2692 7.34027 26.4645 7.53553C26.6597 7.7308 26.9763 7.7308 27.1716 7.53553L30.3536 4.35355ZM0 4.5H30V3.5L0 3.5L0 4.5Z" fill="#5597BC"/>
+            </svg>
+            <div class="text-center w-2/5 md:w-1/6">
+                <div class="mx-auto w-full aspect-square bg-mygray bg-opacity-[0.15] rounded-full">
+                    <svg class="m-auto h-full" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                        <path d="M26.25 15C26.25 8.78906 21.2109 3.75 15 3.75C8.78906 3.75 3.75 8.78906 3.75 15C3.75 21.2109 8.78906 26.25 15 26.25C21.2109 26.25 26.25 21.2109 26.25 15Z" stroke="#5C5C5C" stroke-width="3" stroke-miterlimit="10"/>
+                        <path d="M20.625 10.3125L12.75 19.6875L9.375 15.9375" stroke="#5C5C5C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                </div>
+                <h3 class="text-lg font-medium">Apply Them</h3>
+                <p class="text-base">finally get a job and get off to a good start</p>
+            </div>
+        </section>
+        <!-- Page3 -->
+        <section class="mt-24">
+            <h2 class="mb-8 text-3xl font-semibold">Latest <span class="text-myblue-100">Job</span> Here</h2>
+            <div id="Items" class="relative flex flex-row flex-wrap justify-between">
+                <!-- Item -->
+                <div class="mb-4 w-full md:pe-4 md:w-1/2 lg:w-1/3">
+                    <div id="item" class="p-4 shadow-lg border rounded-lg">
+                        <div class="flex flex-row gap-4">
+                            <div>
+                                <img width="50" src="./img/microsoft.png" alt="microsoft">
+                            </div>
+                            <div>
+                                <h1 class="text-lg font-semibold">Microsoft New york</h1>
+                                <h2 class="text-base text-myorange font-semibold">Designer</h2>
+                                <p class="text-sm">2 Day Ago</p>
+                            </div>
+                            <svg class="ms-auto" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                <path d="M23.4375 28.125C23.2082 28.1257 22.9866 28.0423 22.8147 27.8906L15 20.942L7.18535 27.8906C7.05012 28.0108 6.88299 28.0893 6.70412 28.1167C6.52526 28.144 6.34231 28.119 6.17734 28.0447C6.01238 27.9703 5.87245 27.8498 5.77444 27.6977C5.67643 27.5456 5.62453 27.3684 5.625 27.1875V5.625C5.62609 4.63077 6.02153 3.67757 6.72455 2.97455C7.42758 2.27152 8.38077 1.87609 9.375 1.875H20.625C21.6192 1.87609 22.5724 2.27152 23.2755 2.97455C23.9785 3.67757 24.3739 4.63077 24.375 5.625V27.1875C24.375 27.4361 24.2762 27.6746 24.1004 27.8504C23.9246 28.0262 23.6861 28.125 23.4375 28.125Z" fill="#BABABA"/>
+                            </svg>
+                        </div>
+                        <p>need a designer who can help us in developing the project</p>
+                        <div class="mt-8 flex flex-row justify-between">
+                            <button class="text-myblue-100 font-semibold border-b-2 border-b-myblue-100">Apply Now</button>
+                            <img src="./img/people-collage.png" alt="people-collage">
+                        </div>
+                    </div>
+                </div>
+                <!-- Item -->
+                <div class="mb-4 w-full md:ps-4 md:w-1/2 lg:px-4 lg:w-1/3">
+                    <div id="item" class="p-4 shadow-lg border rounded-lg">
+                        <div class="flex flex-row gap-4">
+                            <div>
+                                <img width="50" src="./img/microsoft.png" alt="microsoft">
+                            </div>
+                            <div>
+                                <h1 class="text-lg font-semibold">Microsoft New york</h1>
+                                <h2 class="text-base text-myorange font-semibold">Designer</h2>
+                                <p class="text-sm">2 Day Ago</p>
+                            </div>
+                            <svg class="ms-auto" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                <path d="M23.4375 28.125C23.2082 28.1257 22.9866 28.0423 22.8147 27.8906L15 20.942L7.18535 27.8906C7.05012 28.0108 6.88299 28.0893 6.70412 28.1167C6.52526 28.144 6.34231 28.119 6.17734 28.0447C6.01238 27.9703 5.87245 27.8498 5.77444 27.6977C5.67643 27.5456 5.62453 27.3684 5.625 27.1875V5.625C5.62609 4.63077 6.02153 3.67757 6.72455 2.97455C7.42758 2.27152 8.38077 1.87609 9.375 1.875H20.625C21.6192 1.87609 22.5724 2.27152 23.2755 2.97455C23.9785 3.67757 24.3739 4.63077 24.375 5.625V27.1875C24.375 27.4361 24.2762 27.6746 24.1004 27.8504C23.9246 28.0262 23.6861 28.125 23.4375 28.125Z" fill="#BABABA"/>
+                            </svg>
+                        </div>
+                        <p>need a designer who can help us in developing the project</p>
+                        <div class="mt-8 flex flex-row justify-between">
+                            <button class="text-myblue-100 font-semibold border-b-2 border-b-myblue-100">Apply Now</button>
+                            <img src="./img/people-collage.png" alt="people-collage">
+                        </div>
+                    </div>
+                </div>
+                <!-- Item -->
+                <div class="mb-4 w-full md:pe-4 md:w-1/2 lg:pe-0 lg:ps-4 lg:w-1/3">
+                    <div id="item" class="p-4 shadow-lg border rounded-lg">
+                        <div class="flex flex-row gap-4">
+                            <div>
+                                <img width="50" src="./img/microsoft.png" alt="microsoft">
+                            </div>
+                            <div>
+                                <h1 class="text-lg font-semibold">Microsoft New york</h1>
+                                <h2 class="text-base text-myorange font-semibold">Designer</h2>
+                                <p class="text-sm">2 Day Ago</p>
+                            </div>
+                            <svg class="ms-auto" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                <path d="M23.4375 28.125C23.2082 28.1257 22.9866 28.0423 22.8147 27.8906L15 20.942L7.18535 27.8906C7.05012 28.0108 6.88299 28.0893 6.70412 28.1167C6.52526 28.144 6.34231 28.119 6.17734 28.0447C6.01238 27.9703 5.87245 27.8498 5.77444 27.6977C5.67643 27.5456 5.62453 27.3684 5.625 27.1875V5.625C5.62609 4.63077 6.02153 3.67757 6.72455 2.97455C7.42758 2.27152 8.38077 1.87609 9.375 1.875H20.625C21.6192 1.87609 22.5724 2.27152 23.2755 2.97455C23.9785 3.67757 24.3739 4.63077 24.375 5.625V27.1875C24.375 27.4361 24.2762 27.6746 24.1004 27.8504C23.9246 28.0262 23.6861 28.125 23.4375 28.125Z" fill="#BABABA"/>
+                            </svg>
+                        </div>
+                        <p>need a designer who can help us in developing the project</p>
+                        <div class="mt-8 flex flex-row justify-between">
+                            <button class="text-myblue-100 font-semibold border-b-2 border-b-myblue-100">Apply Now</button>
+                            <img src="./img/people-collage.png" alt="people-collage">
+                        </div>
+                    </div>
+                </div>
+                <!-- Item -->
+                <div class="mb-4 w-full md:ps-4 md:w-1/2 lg:pe-4 lg:ps-0 lg:w-1/3">
+                    <div id="item" class="p-4 shadow-lg border rounded-lg">
+                        <div class="flex flex-row gap-4">
+                            <div>
+                                <img width="50" src="./img/microsoft.png" alt="microsoft">
+                            </div>
+                            <div>
+                                <h1 class="text-lg font-semibold">Microsoft New york</h1>
+                                <h2 class="text-base text-myorange font-semibold">Designer</h2>
+                                <p class="text-sm">2 Day Ago</p>
+                            </div>
+                            <svg class="ms-auto" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                <path d="M23.4375 28.125C23.2082 28.1257 22.9866 28.0423 22.8147 27.8906L15 20.942L7.18535 27.8906C7.05012 28.0108 6.88299 28.0893 6.70412 28.1167C6.52526 28.144 6.34231 28.119 6.17734 28.0447C6.01238 27.9703 5.87245 27.8498 5.77444 27.6977C5.67643 27.5456 5.62453 27.3684 5.625 27.1875V5.625C5.62609 4.63077 6.02153 3.67757 6.72455 2.97455C7.42758 2.27152 8.38077 1.87609 9.375 1.875H20.625C21.6192 1.87609 22.5724 2.27152 23.2755 2.97455C23.9785 3.67757 24.3739 4.63077 24.375 5.625V27.1875C24.375 27.4361 24.2762 27.6746 24.1004 27.8504C23.9246 28.0262 23.6861 28.125 23.4375 28.125Z" fill="#BABABA"/>
+                            </svg>
+                        </div>
+                        <p>need a designer who can help us in developing the project</p>
+                        <div class="mt-8 flex flex-row justify-between">
+                            <button class="text-myblue-100 font-semibold border-b-2 border-b-myblue-100">Apply Now</button>
+                            <img src="./img/people-collage.png" alt="people-collage">
+                        </div>
+                    </div>
+                </div>
+                <!-- Item -->
+                <div class="mb-4 w-full md:pe-4 md:w-1/2 lg:ps-4 lg:w-1/3">
+                    <div id="item" class="p-4 shadow-lg border rounded-lg">
+                        <div class="flex flex-row gap-4">
+                            <div>
+                                <img width="50" src="./img/microsoft.png" alt="microsoft">
+                            </div>
+                            <div>
+                                <h1 class="text-lg font-semibold">Microsoft New york</h1>
+                                <h2 class="text-base text-myorange font-semibold">Designer</h2>
+                                <p class="text-sm">2 Day Ago</p>
+                            </div>
+                            <svg class="ms-auto" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                <path d="M23.4375 28.125C23.2082 28.1257 22.9866 28.0423 22.8147 27.8906L15 20.942L7.18535 27.8906C7.05012 28.0108 6.88299 28.0893 6.70412 28.1167C6.52526 28.144 6.34231 28.119 6.17734 28.0447C6.01238 27.9703 5.87245 27.8498 5.77444 27.6977C5.67643 27.5456 5.62453 27.3684 5.625 27.1875V5.625C5.62609 4.63077 6.02153 3.67757 6.72455 2.97455C7.42758 2.27152 8.38077 1.87609 9.375 1.875H20.625C21.6192 1.87609 22.5724 2.27152 23.2755 2.97455C23.9785 3.67757 24.3739 4.63077 24.375 5.625V27.1875C24.375 27.4361 24.2762 27.6746 24.1004 27.8504C23.9246 28.0262 23.6861 28.125 23.4375 28.125Z" fill="#BABABA"/>
+                            </svg>
+                        </div>
+                        <p>need a designer who can help us in developing the project</p>
+                        <div class="mt-8 flex flex-row justify-between">
+                            <button class="text-myblue-100 font-semibold border-b-2 border-b-myblue-100">Apply Now</button>
+                            <img src="./img/people-collage.png" alt="people-collage">
+                        </div>
+                    </div>
+                </div>
+                <!-- Item -->
+                <div class="mb-4 w-full md:ps-4 md:w-1/2 lg:ps-4 lg:pe-0 lg:w-1/3">
+                    <div id="item" class="p-4 shadow-lg rounded-lg bg-myblue-200 text-white">
+                        <div class="flex flex-row gap-4">
+                            <div>
+                                <img width="50" src="./img/microsoft.png" alt="microsoft">
+                            </div>
+                            <div>
+                                <h1 class="text-lg font-semibold">Microsoft New york</h1>
+                                <h2 class="text-base text-myorange font-semibold">Designer</h2>
+                                <p class="text-sm">2 Day Ago</p>
+                            </div>
+                            <svg class="ms-auto" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                <path d="M23.4375 28.125C23.2082 28.1257 22.9866 28.0423 22.8147 27.8906L15 20.942L7.18535 27.8906C7.05012 28.0108 6.88299 28.0893 6.70412 28.1167C6.52526 28.144 6.34231 28.119 6.17734 28.0447C6.01238 27.9703 5.87245 27.8498 5.77444 27.6977C5.67643 27.5456 5.62453 27.3684 5.625 27.1875V5.625C5.62609 4.63077 6.02153 3.67757 6.72455 2.97455C7.42758 2.27152 8.38077 1.87609 9.375 1.875H20.625C21.6192 1.87609 22.5724 2.27152 23.2755 2.97455C23.9785 3.67757 24.3739 4.63077 24.375 5.625V27.1875C24.375 27.4361 24.2762 27.6746 24.1004 27.8504C23.9246 28.0262 23.6861 28.125 23.4375 28.125Z" fill="#F1A223"/>
+                              </svg>
+                        </div>
+                        <p>need a designer who can help us in developing the project</p>
+                        <div class="mt-8 flex flex-row justify-between">
+                            <button class="px-2 text-white bg-myblue-100 font-semibold rounded">Apply Now</button>
+                            <img src="./img/people-collage.png" alt="people-collage">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="mt-12 text-right">
+                <a href="#" class="px-3 py-1 rounded-md text-white font-semibold bg-myblue-100">1</a>
+                <a href="#" class="px-3 py-1 mx-2 rounded-md font-semibold shadow-md">2</a>
+                <a href="#" class="px-3 py-1 rounded-md font-semibold shadow-md">3</a>
+            </div>
+        </section>
+        <!-- Page4 -->
+        <div class="mt-24 flex flex-col md:flex-row">
+            <div>
+                <img src="./img/social-photo.png" alt="social-photo">
+            </div>
+            <div class="space-y-4 mt-4 md:w-1/2">
+                <h1 class="text-3xl font-semibold">Get World <span class="text-myblue-100">20.000+</span> talented people in one pleace</h1>
+                <p class="leading-8">Talent people in one place is a dynamic and innovative platform that serves as a central hub for connecting talented individuals with diverse skill sets to potential employers and project opportunities. It offers a comprehensive solution for both job seekers and employers, facilitating seamless talent acquisition and recruitment processes.</p>
+                <button class="px-3 py-1 bg-myblue-100 rounded text-white font-semibold">Learn More ...</button>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="mt-24">
+        <div class="px-4 py-16 flex flex-col gap-y-4 bg-myblue-200 text-white md:flex-row md:gap-12 lg:px-12">
+            <ul class="max-w-sm">
+                <li class="mb-2">
+                    <h3 class="text-2xl font-medium">About</h3>
+                </li>
+                <li>
+                    <p>A job search website is an online platform that allows job seekers to search for and apply for jobs that match their qualifications and interests.</p>
+                </li>
+                <li class="mt-8 flex flex-row gap-4">
+                    <img width="40" src="./img/twitter.png" alt="twitter">
+                    <img width="40" src="./img/instagram.png" alt="instagram">
+                    <img width="40" src="./img/facebook.png" alt="facebook">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <h3 class="text-2xl font-medium">Nav</h3>
+                </li>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Categories</a>
+                </li>
+                <li>
+                    <a href="#">My Account</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <h3 class="text-2xl font-medium">Support</h3>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Privacy & Policy</a>
+                </li>
+                <li>
+                    <a href="#">My Account</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="px-4 py-16 bg-myblue-300 text-white text-center lg:px-12">
+            <p>©️ copyright all reserved 2023 Alam</p>
+        </div>
+    </footer>
+    
+    <script src="./js/main.js"></script>
+</body>
+</html>
