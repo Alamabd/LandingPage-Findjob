@@ -1,7 +1,9 @@
 # LandingPage-Findjob👨‍💻
+
 Findjob landing page created with html css javascript and tailwindcss framework. This page is intended to make job searching easier
 
 ## Preview📸
+![Untitled](https://github.com/Alamabd/LandingPage-Findjob/assets/115331322/ec858bad-bb1c-4154-bd54-22f8ec7664b4)
 ![Screenshot from 2023-10-14 06-26-55](https://github.com/Alamabd/LandingPage-Findjob/assets/115331322/c07e01eb-807a-451c-b660-86c6f16c65cf)
 
 
