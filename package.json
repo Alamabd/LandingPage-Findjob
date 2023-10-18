@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "alam",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "tailwindcss": "^3.3.3"
   }
