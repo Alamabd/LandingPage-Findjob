@@ -4,7 +4,7 @@ const navlink = document.getElementById('navlink');
 function navtoggle() {
     navlink.classList.toggle('py-4');
     navlink.classList.toggle('h-0');
-    navlink.classList.add('bg-white');
+    nav.classList.add('bg-white');
 }
 
 window.onscroll = function() {
@@ -15,4 +15,8 @@ window.onscroll = function() {
         nav.classList.remove('bg-white');
         nav.classList.remove('shadow');
     }
+}
+
+function totop() {
+    window.scrollTo(0, 0);
 }

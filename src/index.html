@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +9,17 @@
     <link rel="stylesheet" href="../dist/style.css">
 </head>
 <body class="font-poppins">
+    <!-- Back To Top -->
+    <!-- <a href="#home" class="fixed bg-white rounded shadow-lg z-20 p-4 bottom-4 right-4 lg:bottom-12 lg:right-12"> -->
+    <a onclick="totop()" class="fixed bg-white rounded shadow-lg z-20 p-4 bottom-4 right-4 lg:bottom-12 lg:right-12">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 512 512">
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48"
+                d="M112 244l144-144 144 144M256 120v292" />
+        </svg>
+    </a>
+
     <!-- Navbar -->
-    <nav id="nav" class="fixed py-4 z-10 top-0 left-0 right-0 whitespace-nowrap lg:flex">
+    <nav id="nav" class="fixed backdrop-blur bg-opacity-50 py-4 z-10 top-0 left-0 right-0 whitespace-nowrap lg:flex">
         <div class="px-4 flex justify-between items-center lg:px-12">
             <a href="#" class="text-3xl flex flex-row font-medium">
                 Findj
@@ -58,7 +67,7 @@
         </ul>
     </nav>
     <!-- Page1 -->
-    <section class="px-4 pt-24 pb-4 bg-mywhite md:pt-44 md:flex lg:px-12">
+    <section id="home" class="px-4 pt-24 pb-4 bg-mywhite md:pt-44 md:flex lg:px-12">
         <div class="space-y-4">
             <p class="text-base text-myblue-100">Stay connect to get upcoming job with FindJob</p>
             <h1 class="text-3xl font-semibold lg:text-5xl">Find your <span class="text-myorange">job</span> & make sure goal.</h1>
@@ -308,7 +317,7 @@
     </div>
     <!-- Footer -->
     <footer class="mt-24">
-        <div class="px-4 py-16 flex flex-col gap-y-4 bg-myblue-200 text-white md:flex-row md:gap-12 lg:px-12">
+        <div class="px-4 py-16 flex flex-col gap-y-4 bg-myblue-200 text-white font-light md:flex-row md:gap-12 lg:px-12">
             <ul class="max-w-sm">
                 <li class="mb-2">
                     <h3 class="text-2xl font-medium">About</h3>
